@@ -1,14 +1,11 @@
-<button type="button" class="btn btn-primary add">Add new recipe</button>
-
 <ul class="recipes">
-  <li class="recipe" *ngFor="let recipe of recipes">
+  <li class="recipe" *ngFor="let recipe of recipes" (click)="setActiveRecipe(recipe)">
+      
       <img src="{{recipe.imgPath}}" alt="{{ recipe.name }}">
-      <a href="#" class="recipe__body">
+      <a class="recipe__body">
           <p class="recipe__name">{{ recipe.name }}</p>
           <p class="recipe__descr">{{ recipe.description }}</p>
       </a>
-
-      <app-shopping-list></app-shopping-list>
 
   </li>
 </ul>

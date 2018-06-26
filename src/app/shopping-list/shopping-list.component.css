@@ -1,7 +1,12 @@
 .ingredients {
-    margin-left: 160px;
+    color: #000;
+}
+
+.ingredients b {
+    font-size: 20px;
+    font-weight: 400;
 }
 
 .ingredients__list {
-    
+    color: #000;
 }
