@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  loadedRouter: string;
+
+  navigate(url: string) {
+    this.loadedRouter = url;
+  }
+  
 }
