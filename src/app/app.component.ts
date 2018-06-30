@@ -8,10 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
 
-  loadedRouter: string;
+  loadedRouter = 'recipes';
 
   navigate(url: string) {
     this.loadedRouter = url;
   }
-  
+
 }

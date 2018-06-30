@@ -1,4 +1,9 @@
-export class Ingredient {
+interface IIngredient {
+    name: string;
+    amount: number;
+}
+
+export class Ingredient implements IIngredient{
     name: string;
     amount: number;
 

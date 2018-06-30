@@ -13,7 +13,7 @@
         <p class="currentRecipe__descr">{{ currentRecipe.description }}</p>
     </div>
 
-    <app-shopping-list></app-shopping-list>
+    <app-shopping-list [ingredients]="currentRecipe.ingredients"></app-shopping-list>
 
     <button type="button" class="btn btn-primary">Edit</button>
     <button type="button" class="btn btn-danger">Delete</button>
