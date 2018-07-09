@@ -1,20 +1,20 @@
 <div class="details">      
 
-    <div class="currentRecipe">
-        <h2 class="currentRecipe__title">Подобається? Спробуй приготувати сам ;)</h2>
-
-        <p class="currentRecipe__name"> {{ currentRecipe.name }}</p>
-
-        <div class="currentRecipe__img">
-            <img src="{{ currentRecipe.imgPath }}" alt="{{ currentRecipe.name }}">
-        </div>
-
-        <p class="currentRecipe__name">Як правильно гутувати:</p>
-        <p class="currentRecipe__descr">{{ currentRecipe.description }}</p>
-    </div>
-
-    <app-shopping-list [ingredients]="currentRecipe.ingredients"></app-shopping-list>
-
     <button type="button" class="btn btn-primary">Edit</button>
     <button type="button" class="btn btn-danger">Delete</button>
+     
+    <div class="currentRecipe">
+        <p class="currentRecipe__name"> {{ recipe.name }}</p>
+
+        <div class="currentRecipe__img">
+            <img src="{{ recipe.imgPath }}" alt="{{ recipe.name }}">
+        </div>
+
+        <p class="currentRecipe__name">Опис:</p>
+        <p class="currentRecipe__descr">{{ recipe.description }}</p>
+    </div>
+
+    <!-- <app-shopping-list [ingredients]="currentRecipe.ingredients"></app-shopping-list> -->
+
+
 </div>

@@ -7,12 +7,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  @Output() routerSelected = new EventEmitter<string>();
-
-  onSelect(url: string) {
-    this.routerSelected.emit(url);
-  }
-
   constructor() { }
 
   ngOnInit() {

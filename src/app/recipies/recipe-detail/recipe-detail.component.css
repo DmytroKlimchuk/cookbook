@@ -10,9 +10,11 @@
 
 .details p {
     color: #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .currentRecipe__title {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
     font-size: 32px;
     color: #000;
@@ -29,9 +31,11 @@
 .currentRecipe__name {
     font-size: 24px;
     color: #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .recipe__descr {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 14px;
     color: #000;
     line-height: 1.2;

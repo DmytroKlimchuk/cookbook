@@ -1,5 +1,5 @@
-<ul class="recipes">
-  <li class="recipe" *ngFor="let recipe of recipes" (click)="setActiveRecipe(recipe)">
+<ul class="recipes" *ngIf="recipes.length; else info">
+  <li class="recipe" *ngFor="let recipe of recipes" (click)="onSelectRecipe(recipe)">
       
       <img src="{{recipe.imgPath}}" alt="{{ recipe.name }}">
       <a class="recipe__body">
@@ -9,3 +9,9 @@
 
   </li>
 </ul>
+
+<ng-template #info>
+    <h3>
+        No recipes!
+    </h3>
+</ng-template>

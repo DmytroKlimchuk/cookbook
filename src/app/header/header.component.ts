@@ -7,16 +7,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() navigateURL = new EventEmitter<string>();
-
-  loadedRouter = 'recipes';
-
-  navigate(url: string) {
-      this.loadedRouter = url;
-      console.log(this.loadedRouter);
-      this.navigateURL.emit(this.loadedRouter);
-  }
-
   constructor() { }
 
   ngOnInit() {

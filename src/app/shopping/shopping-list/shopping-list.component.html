@@ -1,0 +1,17 @@
+<div class="ingredients">
+    <h3>
+        Список покупок:
+    </h3>
+    <ul *ngIf="shopping.length; else info">
+        <li *ngFor="let item of shopping">
+            <button (click)="remove(item)">
+                <i class="fa fa-trash-o"></i>
+            </button>
+            <strong>Name:</strong> {{item.name}} /
+            <strong>Amount:</strong> {{item.amount}}
+        </li>
+    </ul>
+    <ng-template #info>
+        <h3>There is nothing here;</h3>
+    </ng-template>
+    </div>

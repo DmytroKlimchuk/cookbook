@@ -19,7 +19,7 @@
     list-style-type: none;
     border-radius: 5px;
     transition: all 0.5s linear;
-    margin-right: 15px;
+    margin-right: 10px;
 }
 
 .recipe:nth-child(3n) {
@@ -40,14 +40,17 @@
 }
 
 .recipe__name {
-    font-size: 20px;
-    font-style: bold;
+    font-size: 17px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .recipe__descr {
-    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
     line-height: 1.2;
     margin-bottom: 20px;
+    font-weight: 400;
 }
 
 .add {

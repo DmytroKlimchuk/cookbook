@@ -1,0 +1,4 @@
+.nav li a.active {
+    color: #ffffff;
+    font-weight: 500;
+}
