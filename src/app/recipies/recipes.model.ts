@@ -1,3 +1,4 @@
+import { Shopping } from '../shopping/shopping.model';
 
 interface IRecipe {
     name: string;
@@ -6,9 +7,10 @@ interface IRecipe {
 }
 
 export class Recipe implements IRecipe {
+    ingredients: Shopping[];
 
-    constructor(public name: string, public description: string, public imgPath: string) {
-
+    constructor(public name: string, public description: string, public imgPath: string, ...ingredients: Shopping[]) {
+        this.ingredients = ingredients;
     }
 
 }

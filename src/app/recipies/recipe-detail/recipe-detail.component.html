@@ -12,9 +12,18 @@
 
         <p class="currentRecipe__name">Опис:</p>
         <p class="currentRecipe__descr">{{ recipe.description }}</p>
+
+        <div class="ingridients">
+            <h3>Інгредієнти:</h3>
+            <p *ngFor='let ingredient of recipe.ingredients'>
+                <strong>Name</strong> {{ingredient.name}} / 
+                <strong>Amount:</strong> {{ingredient.amount}}
+            </p>
+        </div>
+
     </div>
 
-    <!-- <app-shopping-list [ingredients]="currentRecipe.ingredients"></app-shopping-list> -->
+    
 
 
 </div>
