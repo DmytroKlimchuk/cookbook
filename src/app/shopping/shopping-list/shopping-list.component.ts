@@ -19,6 +19,9 @@ export class ShoppingListComponent implements OnInit {
 
   ngOnInit() {
     this.shopping = this.ShoppingService.getShopping();
+    this.ShoppingService.shoppingChanged.subscribe((item: Shopping[]) => {
+      this.shopping = item;
+    });
   }
 
   remove(value) {

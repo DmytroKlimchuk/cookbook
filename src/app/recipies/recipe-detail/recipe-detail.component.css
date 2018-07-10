@@ -41,3 +41,22 @@
     line-height: 1.2;
     margin-bottom: 20px;
 }
+
+.dropdown-menu a {
+    cursor: pointer;
+}
+
+.btn-group {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-group>button {
+    background-color: #8c8c8c;
+    color: #fff;
+    width: 100%;
+}
+
+.open>.dropdown-menu {
+    width: 100%;
+}

@@ -1,7 +1,15 @@
 <div class="details">      
 
-    <button type="button" class="btn btn-primary">Edit</button>
-    <button type="button" class="btn btn-danger">Delete</button>
+    <div class="btn-group">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Оберіть варіант <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu">
+        <li><a (click)="addToShoppingList()">Додати до списку покупок</a></li>
+        <li><a>Редагувати</a></li>
+        <li><a>Видалити</a></li>
+    </ul>
+    </div>
      
     <div class="currentRecipe">
         <p class="currentRecipe__name"> {{ recipe.name }}</p>
@@ -22,8 +30,5 @@
         </div>
 
     </div>
-
-    
-
 
 </div>
