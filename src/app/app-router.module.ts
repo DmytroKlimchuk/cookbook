@@ -7,23 +7,24 @@ import { NgModule } from '@angular/core';
 
 
 const appRouter: Routes = [
-    {path: '', redirectTo: '/recipes', pathMatch: 'full'},
-    {path: 'recipes', component: RecipiesComponent},
-    {path: 'shopping-list', component: ShoppingComponent}
-  ];
+  { path: '', redirectTo: '/recipes', pathMatch: 'full'},
+  { path: 'recipes', component: RecipiesComponent },
+  { path: 'recipes/:id', component: RecipiesComponent },
+  { path: 'shopping-list', component: ShoppingComponent }
+];
 
 export const routerComponents = [
   RecipiesComponent,
   ShoppingComponent
-]
+];
 
-  @NgModule({
-    imports: [
-      RouterModule.forRoot(appRouter)
-    ],
-    exports: [
-      RouterModule
-    ]
-  })
+@NgModule({
+  imports: [
+    RouterModule.forRoot(appRouter)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
 
-  export class AppRoutingModule {}
+export class AppRoutingModule {}

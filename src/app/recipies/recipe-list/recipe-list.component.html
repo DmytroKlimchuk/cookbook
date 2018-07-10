@@ -1,11 +1,13 @@
 <ul class="recipes" *ngIf="recipes.length; else info">
   <li class="recipe" *ngFor="let recipe of recipes" (click)="onSelectRecipe(recipe)">
-      
-      <img src="{{recipe.imgPath}}" alt="{{ recipe.name }}">
-      <a class="recipe__body">
-          <p class="recipe__name">{{ recipe.name }}</p>
-          <p class="recipe__descr">{{ recipe.description }}</p>
+      <a routerLink="/recipes/{{recipe.id}}" >
+        <img src="{{recipe.imgPath}}" alt="{{ recipe.name }}">
+        <div class="recipe__body">
+            <p class="recipe__name">{{ recipe.name }}</p>
+            <p class="recipe__descr">{{ recipe.description }}</p>
+        </div>
       </a>
+
 
   </li>
 </ul>
