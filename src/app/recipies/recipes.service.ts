@@ -3,6 +3,7 @@ import { EventEmitter } from '@angular/core';
 import { Recipe } from './recipes.model';
 import { recipes } from './data';
 
+
 export class RecipesService {
 
   getRecipe = new EventEmitter<Recipe>();
@@ -34,6 +35,17 @@ export class RecipesService {
     this.recipesChanged.emit(this.recipes);
 
     console.log(this.recipes);
+  }
+
+  edit(item) {
+    this.recipes = this.recipes.filter((recipe) => recipe.id != item.id);
+    this.recipes.push(item);
+    this.recipesChanged.emit(this.recipes);
+  }
+
+  add(item) {
+    this.recipes.push(item);
+    this.recipesChanged.emit(this.recipes);
   }
 
 }

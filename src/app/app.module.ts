@@ -17,6 +17,7 @@ import { ShoppingService } from './shopping/shopping.service';
 
 import { AppRoutingModule, routerComponents } from './app-router.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,

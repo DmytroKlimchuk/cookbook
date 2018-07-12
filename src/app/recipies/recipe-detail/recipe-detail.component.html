@@ -6,7 +6,8 @@
     </button>
     <ul class="dropdown-menu">
         <li><a (click)="addToShoppingList()">Додати до списку покупок</a></li>
-        <li><a>Редагувати</a></li>
+        <li><a routerLink="/recipe-edit/{{ id }}">Редагувати рецепт</a></li>
+        <li><a routerLink="/recipe-add">Додати новий рецепт</a></li>
         <li><a (click)='removeRecipe(recipe)'>Видалити</a></li>
     </ul>
     </div>

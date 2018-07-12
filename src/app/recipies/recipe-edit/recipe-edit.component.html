@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col col-xs-12 col-md-6 col-md-offset-3">
+    <h3>Редагувати рецепт</h3>
+    <form>
+
+      <div class="form-group">
+        <label>Назва рецепту</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="recipe.name">
+      </div>
+
+      <div class="form-group">
+        <label>Опис</label>
+        <input type="text" class="form-control" name="description" [(ngModel)]="recipe.description">
+      </div>
+
+      <div class="form-group">
+        <label>Картинка</label>
+        <input type="text" class="form-control" name="imgPath" [(ngModel)]="recipe.imgPath">
+      </div>
+      
+      <div class="form-group">
+          <label>Інгредіенти:</label>
+          <ul *ngIf="recipe.ingredients.length; else info" class="ingredients">
+              <li *ngFor="let item of recipe.ingredients">
+                  <button (click)="removeIngredient(item)">
+                      <i class="fa fa-trash"></i>
+                  </button>
+                  <strong>Name:</strong> {{item.name}} /
+                  <strong>Amount:</strong> {{item.amount}}
+              </li>
+          </ul>
+          <ng-template #info>
+              <p>Інгредієнти відсутні</p>
+          </ng-template>
+        </div>
+
+        <div class="form-group add-ingredients">
+            <label>Додати інгредіент:</label>
+            <div class="row">
+                <div class="col-xs-7">
+                    <input type="text" class="form-control" [(ngModel)]="nameIngredient" name="nameIngredient" placeholder="Назва">
+                  </div>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" [(ngModel)]="amount" name="amount" placeholder="Кількість">
+                  </div>
+                <div class="col-xs-2">              
+                  <button type="submit" class="btn btn-default" (click)="addIngredient()">Додати</button>
+                </div>
+            </div>
+          </div>
+
+      <button type="submit" class="btn btn-primary" (click)="saveRecipe()">Зберегти</button>
+    </form>
+
+
+  </div>
+</div>
+
