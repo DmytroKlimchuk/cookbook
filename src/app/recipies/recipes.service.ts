@@ -18,6 +18,12 @@ export class RecipesService {
     this.recipes = value;
   }
 
+  getRecipeById(id) {
+    return this.recipes.filter((item) => {
+      return item.id == id;
+    })[0];
+  }
+
   remove(remove) {
     console.log(remove.id);
 

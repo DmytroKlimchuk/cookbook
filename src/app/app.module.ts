@@ -8,7 +8,6 @@ import { HeaderComponent } from './header/header.component';
 import { NavigationComponent } from './header/navigation/navigation.component';
 
 import { RecipeListComponent } from './recipies/recipe-list/recipe-list.component';
-import { RecipeDetailComponent } from './recipies/recipe-detail/recipe-detail.component';
 import { RecipesService } from './recipies/recipes.service';
 
 import { ShoppingListComponent } from './shopping/shopping-list/shopping-list.component';
@@ -22,7 +21,6 @@ import { AppRoutingModule, routerComponents } from './app-router.module';
   declarations: [
     AppComponent,
     RecipeListComponent,
-    RecipeDetailComponent,
     HeaderComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
