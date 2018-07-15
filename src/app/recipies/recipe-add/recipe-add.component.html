@@ -3,21 +3,30 @@
   
         <h3>Додати новий рецепт</h3>
         
-      <form>
+      <form novalidate [formGroup]="recipeForm">
   
         <div class="form-group">
           <label>Назва рецепту</label>
-          <input type="text" class="form-control" name="name" [(ngModel)]="name">
+          <input type="text" class="form-control" name="name" formControlName="name" >
+          <div class="alert alert-danger" *ngIf="recipeForm.controls['name'].invalid && recipeForm.controls['name'].touched">
+            Необхідно заповнити
+          </div>
         </div>
   
         <div class="form-group">
           <label>Опис</label>
-          <input type="text" class="form-control" name="description" [(ngModel)]="description">
+          <input type="text" class="form-control" name="description" formControlName="description">
+          <div class="alert alert-danger" *ngIf="recipeForm.controls['description'].invalid && recipeForm.controls['description'].touched">
+            Необхідно заповнити
+          </div>
         </div>
   
         <div class="form-group">
           <label>Картинка</label>
-          <input type="text" class="form-control" name="imgPath" [(ngModel)]="imgPath">
+          <input type="text" class="form-control" name="imgPath" formControlName="imgPath">
+          <div class="alert alert-danger" *ngIf="recipeForm.controls['imgPath'].invalid && recipeForm.controls['imgPath'].touched">
+            Необхідно заповнити
+          </div>
         </div>
         
         <div class="form-group">
@@ -27,8 +36,8 @@
                     <button (click)="removeIngredient(item)">
                         <i class="fa fa-trash"></i>
                     </button>
-                    <strong>Name:</strong> {{item.name}} /
-                    <strong>Amount:</strong> {{item.amount}}
+                    <strong>Назва:</strong> {{item.name}} /
+                    <strong>к-сть:</strong> {{item.amount}}
                 </li>
             </ul>
             <ng-template #info>
@@ -40,18 +49,24 @@
               <label>Додати інгредіент:</label>
               <div class="row">
                   <div class="col-xs-7">
-                      <input type="text" class="form-control" [(ngModel)]="nameIngredient" name="nameIngredient" placeholder="Назва">
+                      <input type="text" class="form-control" #ingrName name="nameIngredient" placeholder="Назва" formControlName="nameIngredient">
+                      <div class="alert alert-danger" *ngIf="recipeForm.controls['nameIngredient'].invalid && recipeForm.controls['nameIngredient'].touched">
+                        Необхідно заповнити
+                      </div>
                     </div>
                   <div class="col-xs-3">
-                      <input type="text" class="form-control" [(ngModel)]="amount" name="amount" placeholder="Кількість">
+                      <input type="text" class="form-control" #ingrAmount name="amount" placeholder="Кількість" formControlName="amount">
+                      <div class="alert alert-danger" *ngIf="recipeForm.controls['amount'].invalid && recipeForm.controls['amount'].touched">
+                        Невірно введені дані
+                      </div>
                     </div>
                   <div class="col-xs-2">              
-                    <button type="submit" class="btn btn-default" (click)="addIngredient()">Додати</button>
+                    <button class="btn btn-default" [disabled]="recipeForm.invalid" (click)="addIngredient(ingrName, ingrAmount)">Додати</button>
                   </div>
               </div>
             </div>
   
-        <button type="submit" class="btn btn-primary" (click)="addRecipe()">Зберегти</button>
+        <button type="submit" class="btn btn-primary" [disabled]="recipeForm.invalid" (click)="addRecipe()">Додати</button>
       </form>
   
   

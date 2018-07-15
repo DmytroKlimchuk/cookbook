@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Recipe } from '../recipes.model';
 import { Shopping } from '../../shopping/shopping.model';
 
@@ -24,14 +26,25 @@ export class RecipeAddComponent implements OnInit {
   nameIngredient: string;
   amount: number;
 
+  recipeForm: FormGroup;
+
   constructor(public RecipesService: RecipesService, public router: Router) {}
 
 
   ngOnInit() {
+
+    this.recipeForm = new FormGroup ({
+      'name': new FormControl ('', Validators.required),
+      'description':  new FormControl ('', Validators.required),
+      'imgPath':  new FormControl ('', Validators.required),
+      'nameIngredient':  new FormControl ('', Validators.required),
+      'amount':  new FormControl ('', [ Validators.required, Validators.pattern('\\d+') ])
+    });
+
   }
 
-  addIngredient() {
-    const item = new Shopping(this.nameIngredient, this.amount);
+  addIngredient(name: HTMLInputElement, count: HTMLInputElement) {
+    const item = new Shopping(name.value, +count.value);
     this.ingredients.push(item);
   }
 
@@ -42,10 +55,18 @@ export class RecipeAddComponent implements OnInit {
   addRecipe() {
     this.recipes = this.RecipesService.getRecipes();
     const id = this.recipes.length + 1;
+    console.log(this.recipeForm.value);
 
-    this.recipe = new Recipe(id, this.name, this.description, this.imgPath, ...this.ingredients);
+    this.recipe = new Recipe(
+      id,
+      this.recipeForm.value.name,
+      this.recipeForm.value.description,
+      this.recipeForm.value.imgPath,
+      ...this.ingredients
+    );
 
+    console.log(this.recipe);
     this.RecipesService.add(this.recipe);
-    this.router.navigate(['recipes']);
+    this.router.navigate(['recipes', id]);
   }
 }

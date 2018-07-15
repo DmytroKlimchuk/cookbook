@@ -44,3 +44,15 @@ ul
 .add-ingredients input{
     margin-bottom: 15px;
 }
+
+form .ng-invalid:not(.ng-untouched) {
+    border: 1px solid red;
+}
+
+form .ng-valid {
+    border: 1px solid green;
+}
+
+form .alert {
+    margin-top: 5px;
+}

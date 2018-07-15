@@ -5,17 +5,32 @@
 
       <div class="form-group">
         <label>Назва рецепту</label>
-        <input type="text" class="form-control" name="name" [(ngModel)]="recipe.name">
+        <input type="text" class="form-control" name="name" [(ngModel)]="recipe.name" #name="ngModel" required >
+
+        <div [hidden]="name.valid || name.untouched" class="alert alert-danger">
+          Необхідно заповнити
+        </div>
+
       </div>
 
       <div class="form-group">
         <label>Опис</label>
-        <input type="text" class="form-control" name="description" [(ngModel)]="recipe.description">
+        <input type="text" class="form-control" name="description" [(ngModel)]="recipe.description" #description="ngModel" required >
+        
+        <div [hidden]="description.valid || description.untouched" class="alert alert-danger">
+          Необхідно заповнити
+        </div>
+
       </div>
 
       <div class="form-group">
         <label>Картинка</label>
-        <input type="text" class="form-control" name="imgPath" [(ngModel)]="recipe.imgPath">
+        <input type="text" class="form-control" name="imgPath" [(ngModel)]="recipe.imgPath" #imgPath="ngModel" required >
+        
+        <div [hidden]="imgPath.valid || imgPath.untouched" class="alert alert-danger">
+          Необхідно заповнити
+        </div>
+
       </div>
       
       <div class="form-group">
@@ -49,7 +64,7 @@
             </div>
           </div>
 
-      <button type="submit" class="btn btn-primary" (click)="saveRecipe()">Зберегти</button>
+      <button type="submit" class="btn btn-primary" (click)="saveRecipe()" [disabled]="name.invalid || description.invalid || imgPath.invalid" >Зберегти</button>
     </form>
 
 
