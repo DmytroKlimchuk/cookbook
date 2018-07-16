@@ -15,6 +15,8 @@ import { ShoppingEditComponent } from './shopping/shopping-edit/shopping-edit.co
 import { ShoppingFormComponent } from './shopping/shopping-form/shopping-form.component';
 import { ShoppingService } from './shopping/shopping.service';
 
+import {CommonService} from './common.service';
+import { HttpModule } from '@angular/http';
 import { AppRoutingModule, routerComponents } from './app-router.module';
 
 
@@ -33,9 +35,10 @@ import { AppRoutingModule, routerComponents } from './app-router.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  providers: [RecipesService, ShoppingService],
+  providers: [RecipesService, ShoppingService, CommonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

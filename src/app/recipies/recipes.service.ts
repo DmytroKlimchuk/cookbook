@@ -1,5 +1,4 @@
 import { EventEmitter } from '@angular/core';
-
 import { Recipe } from './recipes.model';
 import { recipes } from './data';
 
@@ -35,6 +34,7 @@ export class RecipesService {
     this.recipesChanged.emit(this.recipes);
 
     console.log(this.recipes);
+
   }
 
   edit(item) {

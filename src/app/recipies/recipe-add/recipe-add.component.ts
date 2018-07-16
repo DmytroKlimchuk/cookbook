@@ -8,6 +8,7 @@ import { Shopping } from '../../shopping/shopping.model';
 
 import { RecipesService } from '../recipes.service';
 
+
 @Component({
   selector: 'app-recipe-add',
   templateUrl: './recipe-add.component.html',
@@ -27,6 +28,8 @@ export class RecipeAddComponent implements OnInit {
   amount: number;
 
   recipeForm: FormGroup;
+
+  errorMessage = '';
 
   constructor(public RecipesService: RecipesService, public router: Router) {}
 
@@ -67,6 +70,7 @@ export class RecipeAddComponent implements OnInit {
 
     console.log(this.recipe);
     this.RecipesService.add(this.recipe);
+
     this.router.navigate(['recipes', id]);
   }
 }
