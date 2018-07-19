@@ -2,7 +2,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Recipe } from '../recipes.model';
 import { RecipesService } from '../recipes.service';
-import {CommonService} from '../../common.service';
 
 @Component({
   selector: 'app-recipe-list',
@@ -12,9 +11,8 @@ import {CommonService} from '../../common.service';
 
 export class RecipeListComponent implements OnInit {
   recipes: Recipe[];
-  Repdata;
 
-  constructor(public RecipesService: RecipesService, private newService: CommonService) {
+  constructor(public RecipesService: RecipesService) {
     this.recipes = [];
    }
 
@@ -25,20 +23,10 @@ export class RecipeListComponent implements OnInit {
       this.recipes = data;
     });
 
-    this.newService.GetRecipes().subscribe(data =>  this.Repdata = data);
-    console.log(this.Repdata);
-
-    if ( typeof this.Repdata === 'undefined') {
-        this.save(this.recipes);
-    }
-
   }
 
   onSelectRecipe(recipe) {
     this.RecipesService.getRecipe.emit(recipe);
   }
 
-  save(item) {
-    this.newService.addRecipe(item);
-  }
 }

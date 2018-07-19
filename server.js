@@ -14,12 +14,7 @@ const config = {
 // Init
 const server = express();
 
-//Дані
-const main = {
-
-};
 const Recipe = require('./models/recipe.model');
-const Ingredient = require('./models/ingredient.model');
 
 server.use( bodyParser.json() );       // to support JSON-encoded bodies
 server.use(bodyParser.urlencoded({     // to support URL-encoded bodies
@@ -62,22 +57,41 @@ server.get("/get",function(req,res){
         });
   })  
 
+server.get("/delete", function(req, res) {
+
+    Recipe.find({}).remove()
+    .then(() => {
+        console.log('DB cleared');
+        res.send('DB cleared'); 
+    })
+    .catch(e => console.log(e));
+
+});
+
+
 //Обробка POST запитів
 server.post('/post', (req, res) => {
 
     console.log('post');
-    //console.log(req.body);
 
-    const recipe = new Recipe(req.body);
+   const recipes = req.body;
 
-    
-    console.log('input ----- ' + recipe);
+    Recipe.find({}).remove()
+        .then(() => {
+            console.log('Cleared');
+        })
+        .catch(e => console.log(e));
 
-    recipe.save()
+    recipes.forEach(item => {
+        recipe = new Recipe(item);
+        recipe.save()
         .then(result => {
-            console.log('Added')
+            console.log('Added');
         })
         .catch(error => console.log(error));
+    });
+
+
 
 });
 

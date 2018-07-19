@@ -57,7 +57,7 @@ export class RecipeAddComponent implements OnInit {
 
   addRecipe() {
     this.recipes = this.RecipesService.getRecipes();
-    const id = this.recipes.length + 1;
+    const id = this.recipes.length;
     console.log(this.recipeForm.value);
 
     this.recipe = new Recipe(

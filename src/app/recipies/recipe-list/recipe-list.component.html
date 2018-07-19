@@ -1,6 +1,6 @@
 <ul class="recipes" *ngIf="recipes.length; else info">
-  <li class="recipe" *ngFor="let recipe of recipes">
-      <a routerLink="/recipes/{{recipe.id}}" >
+  <li class="recipe" *ngFor="let recipe of recipes;  let i = index">
+      <a routerLink="/recipes/{{ i }}" >
         <img src="{{recipe.imgPath}}" alt="{{ recipe.name }}">
         <div class="recipe__body">
             <p class="recipe__name">{{ recipe.name }}</p>

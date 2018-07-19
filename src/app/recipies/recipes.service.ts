@@ -16,12 +16,11 @@ export class RecipesService {
 
   setRecipes(value: Recipe[]) {
     this.recipes = value;
+    this.recipesChanged.emit(this.recipes);
   }
 
-  getRecipeById(id) {
-    return this.recipes.filter((item) => {
-      return item.id == id;
-    })[0];
+  getRecipeById(index) {
+    return this.recipes[index];
   }
 
   remove(remove) {
@@ -37,9 +36,8 @@ export class RecipesService {
 
   }
 
-  edit(item) {
-    this.recipes = this.recipes.filter((recipe) => recipe.id != item.id);
-    this.recipes.push(item);
+  edit(index, item) {
+    this.recipes[index] = item;
     this.recipesChanged.emit(this.recipes);
   }
 

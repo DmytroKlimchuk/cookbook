@@ -16,7 +16,7 @@ import { ShoppingFormComponent } from './shopping/shopping-form/shopping-form.co
 import { ShoppingService } from './shopping/shopping.service';
 
 import {CommonService} from './common.service';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule, routerComponents } from './app-router.module';
 
 
@@ -36,7 +36,7 @@ import { AppRoutingModule, routerComponents } from './app-router.module';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    HttpModule
+    HttpClientModule
   ],
   providers: [RecipesService, ShoppingService, CommonService],
   bootstrap: [AppComponent]
